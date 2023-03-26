@@ -8,6 +8,11 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
+// Import Screens 
+import HomeScreen from './screens/HomeScreen';
+import SearchNav from './screens/SearchNavigator';
+import AccountScreen from './screens/AccountScreen';
+
 // Instantiate the Bottom Tab component 
 const Tab = createBottomTabNavigator();
 
