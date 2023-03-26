@@ -20,25 +20,35 @@ export const kiteTheme = createTheme({
             }
         }),
         Text: {
+            style: {
+                fontWeight: 'normal',
+                fontFamily: 'Inter_400Regular',
+                fontSize: 14,
+                lineHeight: 16
+            },
             h1Style: {
                 fontWeight: 'normal',
-                fontFamily: '',
-                fontSize: 34
+                fontFamily: 'Inter_700Bold',
+                fontSize: 34,
+                lineHeight: 35
             },
             h2Style: {
                 fontWeight: 'normal',
-                fontFamily: '',
-                fontSize: 29
+                fontFamily: 'Inter_600SemiBold',
+                fontSize: 26,
+                lineHeight: 29
             },
             h3Style: {
                 fontWeight: 'normal',
-                fontFamily: '',
-                fontSize: 21
+                fontFamily: 'Inter_600SemiBold',
+                fontSize: 20,
+                lineHeight: 21
             },
             h4Style: {
                 fontWeight: 'normal',
-                fontFamily: '',
-                fontSize: 19
+                fontFamily: 'Inter_500Medium',
+                fontSize: 16,
+                lineHeight: 19
             },
         }
     }
