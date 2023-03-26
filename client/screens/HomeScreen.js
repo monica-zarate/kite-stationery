@@ -4,7 +4,15 @@ import { Text } from '@rneui/themed';
 export default function HomeScreen({}) {
     return (
         <View style={styles.container}>
-            <Text>Home Screen</Text>
+            <Text h1>Hello Diana!</Text>
+            <View>
+                <Text h2>Deal of the Week</Text>
+
+            </View>
+            <View>
+                <Text h2>Promotions</Text>
+
+            </View>
         </View>
     )
 };

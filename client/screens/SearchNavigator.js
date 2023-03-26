@@ -10,6 +10,9 @@ export default function SearchNav({}) {
     return (
         <Stack.Navigator
             initialRouteName='Search Screen'
+            screenOptions={{
+                headerShown: false,  
+            }} 
         >
             <Stack.Screen
                 name="Search Screen"

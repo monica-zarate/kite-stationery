@@ -24,13 +24,13 @@ export const kiteTheme = createTheme({
                 fontWeight: 'normal',
                 fontFamily: 'Inter_400Regular',
                 fontSize: 14,
-                lineHeight: 16
+                lineHeight: 16,
             },
             h1Style: {
                 fontWeight: 'normal',
                 fontFamily: 'Inter_700Bold',
                 fontSize: 34,
-                lineHeight: 35
+                lineHeight: 35,
             },
             h2Style: {
                 fontWeight: 'normal',

@@ -1,11 +1,48 @@
-import { View, StyleSheet } from 'react-native';
-import { Text } from '@rneui/themed';
+import { View, StyleSheet, SectionList, Pressable } from 'react-native';
+import { Text, SearchBar, Image } from '@rneui/themed';
 
 export default function SearchScreen({}) {
+    const renderItem = ({item, index}) => (
+        <Pressable 
+            style={styles.category}
+            onPress={() => navigation.navigate('Results', {
+                filter: item.name
+            })}
+        >
+            <Image 
+                source={item.imagePath}
+            />
+            <Text>{item.name}</Text>
+        </Pressable>
+    );
+
+    const renderHeader = ({section}) => (
+        <Text h2>{section.title}</Text>
+    );
+
     return (
         <View style={styles.container}>
-            <Text>Search Screen</Text>
-            <Text>This screen will have the search bar, product categories and brands list</Text>
+            <Text h1>What are you looking for?</Text>
+            <SearchBar 
+                lightTheme={true}
+                containerStyle={{
+                    backgroundColor: '#fff',
+                    borderBottomColor: 'transparent',
+                    borderTopColor: 'transparent'
+                }}
+                inputContainerStyle={{
+                    backgroundColor: '#fff',
+                    // color: '#939393'
+                    color: 'salmon'
+                }}
+                placeholder={"Search by Product, Name or Keyword"}
+            />
+            <SectionList 
+                sections={DATA}
+                keyExtractor={(item, index) => index.toString()}
+                renderItem={renderItem}
+                renderSectionHeader={renderHeader}
+            />
         </View>
     )
 };
@@ -13,6 +50,70 @@ export default function SearchScreen({}) {
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
-        backgroundColor: '#fff',
+        // backgroundColor: '#fff',
+        marginHorizontal: 24,
+        marginTop: 15
     },
 });
+
+const DATA = [
+    {
+        title: "Product Categories",
+        data: [
+            {
+                "name": "notebook",
+                "imagePath": ""
+            },
+            {
+                "name": "pen",
+                "imagePath": ""
+            },
+            {
+                "name": "stickers",
+                "imagePath": ""
+            },
+            {
+                "name": "ink",
+                "imagePath": ""
+            },
+            {
+                "name": "tape",
+                "imagePath": ""
+            },
+            {
+                "name": "highlighter",
+                "imagePath": ""
+            },
+
+        ]
+    },
+    {
+        title: "Brands",
+        data: [
+            {
+                "name": "chroma lumix",
+                "imagePath": ""
+            },
+            {
+                "name": "luctus",
+                "imagePath": ""
+            },
+            {
+                "name": "moon smith",
+                "imagePath": ""
+            },
+            {
+                "name": "reed & quill",
+                "imagePath": ""
+            },
+            {
+                "name": "outline point",
+                "imagePath": ""
+            },
+            {
+                "name": "conner's",
+                "imagePath": ""
+            },
+        ]
+    }
+];
