@@ -6,9 +6,9 @@ class Category {
     private $conn;
 
     // Implemented the same variables types as they were set up on the database
-    public int $id;
-    public string $name;
-    public string $icon;
+    public int $category_id;
+    public string $category_name;
+    public string $category_icon;
 
     // The constructor sets the database connection
     public function __construct($db){
@@ -21,7 +21,7 @@ class Category {
 
         // query that will return all categories records
         $stmt = $this->conn->prepare("
-            SELECT id, name, icon 
+            SELECT category_id, category_name, category_icon 
             FROM categories
         ");
 

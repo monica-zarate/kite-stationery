@@ -15,24 +15,24 @@ include_once '../objects/brand.php';
 $database = new Database();
 $db = $database->getConnection();
 
-// Instantiate a new Product object passing the $db connections as a parameter, read the data and assign it to the $stmt variable
-$location = new Category($db);
+// Instantiate a new Brand object passing the $db connections as a parameter, read the data and assign it to the $stmt variable
+$location = new Brand($db);
 $stmt = $location->read();
 
-// Check the product records row count
+// Check the brands records row count
 $rowNum = $stmt->rowCount();
 
 
 if ($rowNum > 0) {
     
-    // If we get at least one result back, we create the product_arr variable
-    $product_arr = array();
+    // If we get at least one result back, we create the brand_arr variable
+    $brand_arr = array();
 
     // Pass the number of rows as the 'count' key
-    $product_arr['count'] = $rowNum;
+    $brand_arr['count'] = $rowNum;
 
-    // We define the products as an array
-    $product_arr['brands'] = array();
+    // We define the brands as an array
+    $brand_arr['brands'] = array();
 
     // An associative array will return the row of data per product record
     while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -40,23 +40,23 @@ if ($rowNum > 0) {
         // We use the extract method to get all the keys from the data rows as variables
         extract($row);
 
-        // Creating a product_item per product row on the database
-        $product_item = array(
-            'id' => $id,
-            'name' => $name,
-            'icon' => $icon
+        // Creating a brand_item per brand row on the database
+        $brand_item = array(
+            'brand_id' => $brand_id,
+            'brand_name' => $brand_name,
+            'brand_icon' => $brand_icon
         );
 
-        // Push the current item onto the products array
-        array_push($product_arr['brands'], $product_item);
+        // Push the current item onto the brands array
+        array_push($brand_arr['brands'], $brand_item);
 
     }
 
     // Set the response
     http_response_code(200);
 
-    // We return the stringified product_arr using the json_encode method
-    echo json_encode($product_arr);
+    // We return the stringified brand_arr using the json_encode method
+    echo json_encode($brand_arr);
 
 } else {
     // No records found
@@ -64,7 +64,7 @@ if ($rowNum > 0) {
     http_response_code(404);
 
     echo json_encode(
-        array("message" => "No products found")
+        array("message" => "No brands found")
     );
 }
 

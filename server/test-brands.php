@@ -33,7 +33,7 @@
         
         // Create the SQL statement and execute it
         $stmt = $conn->prepare("
-            SELECT id, name, icon 
+            SELECT brand_id, brand_name, brand_icon 
             FROM brands
         ");        
         
@@ -44,9 +44,9 @@
         
             echo "<tr>";
 
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['name'] . "</td>";
-            echo "<td>" . $row['icon'] . "</td>";
+            echo "<td>" . $row['brand_id'] . "</td>";
+            echo "<td>" . $row['brand_name'] . "</td>";
+            echo "<td>" . $row['brand_icon'] . "</td>";
 
             echo "</tr>";            
         }

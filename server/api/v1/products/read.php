@@ -17,7 +17,11 @@ $db = $database->getConnection();
 
 // Instantiate a new Product object passing the $db connections as a parameter, read the data and assign it to the $stmt variable
 $location = new Product($db);
-$stmt = $location->read();
+
+// Sanitize the query params
+$search_terms = (object)filter_input_array(INPUT_GET, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+
+$stmt = $location->read($search_terms);
 
 // Check the product records row count
 $rowNum = $stmt->rowCount();
@@ -47,7 +51,9 @@ if ($rowNum > 0) {
             'description' => $description,
             'price' => $price,
             'image' => $image,
+            'category_id' => $category_id,
             'category_name' => $category_name,
+            'brand_id' => $brand_id,
             'brand_name' => $brand_name
         );
 
