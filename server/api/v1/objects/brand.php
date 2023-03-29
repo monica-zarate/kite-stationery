@@ -1,6 +1,6 @@
 <?php
 
-class Category {
+class Brand {
 
     // Setting the connection variable as private, so it cannot be accessed outside of this class
     private $conn;
