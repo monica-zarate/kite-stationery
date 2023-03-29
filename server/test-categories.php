@@ -1,21 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Kite Stationery Products</title>
+<title>Kite Stationery Product Categories</title>
 
 <link rel="stylesheet" href="./css/common.css">
 
 </head>
 <body>
 
-<h1>Kite Stationery Products</h1>
+<h1>Kite Stationery Product Categories</h1>
 
 <div style="margin-bottom:25px;">Go <a href="index.html">BACK</a> to Home Page.</div>
     
 <?php
 
     echo "<table class='table-data'>";
-    echo "<tr><th>Id</th><th>Name</th><th>Description</th><th>Price</th><th>Image</th><th>Category Name</th><th>Brand Name</th></tr>";
+    echo "<tr><th>Id</th><th>Name</th><th>Icon</th></tr>";
 
     $host = "localhost";
     $username = "root";
@@ -33,8 +33,8 @@
         
         // Create the SQL statement and execute it
         $stmt = $conn->prepare("
-            SELECT products.id, products.name, products.description, products.price, products.image, categories.category_name, brands.brand_name 
-            FROM products, categories, brands WHERE products.category_id = categories.id AND products.brand_id = brands.id
+            SELECT id, name, icon 
+            FROM categories
         ");        
         
         $stmt->execute();
@@ -46,11 +46,7 @@
 
             echo "<td>" . $row['id'] . "</td>";
             echo "<td>" . $row['name'] . "</td>";
-            echo "<td>" . $row['description'] . "</td>";
-            echo "<td>" . $row['price'] . "</td>";
-            echo "<td><img src=\"" . $row['image'] . "\"/></td>";
-            echo "<td>" . $row['category_name'] . "</td>";
-            echo "<td>" . $row['brand_name'] . "</td>";
+            echo "<td>" . $row['icon'] . "</td>";
 
             echo "</tr>";            
         }
