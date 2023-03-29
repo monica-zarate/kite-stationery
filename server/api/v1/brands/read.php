@@ -15,8 +15,8 @@ include_once '../objects/brand.php';
 $database = new Database();
 $db = $database->getConnection();
 
-// Instantiate a new Category object passing the $db connections as a parameter, read the data and assign it to the $stmt variable
-$location = new Category($db);
+// Instantiate a new Brand object passing the $db connections as a parameter, read the data and assign it to the $stmt variable
+$location = new Brand($db);
 $stmt = $location->read();
 
 // Check the brands records row count
