@@ -1,6 +1,8 @@
 import { View, StyleSheet, SectionList, Pressable } from 'react-native';
 import { Text, SearchBar, Image } from '@rneui/themed';
 
+import BrandFetch from '../components/BrandFetch';
+
 export default function SearchScreen({}) {
     const renderItem = ({item, index}) => (
         <Pressable 
@@ -37,12 +39,13 @@ export default function SearchScreen({}) {
                 }}
                 placeholder={"Search by Product, Name or Keyword"}
             />
-            <SectionList 
+            <BrandFetch />
+            {/* <SectionList 
                 sections={DATA}
                 keyExtractor={(item, index) => index.toString()}
                 renderItem={renderItem}
                 renderSectionHeader={renderHeader}
-            />
+            /> */}
         </View>
     )
 };
