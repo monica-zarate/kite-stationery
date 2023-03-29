@@ -15,7 +15,7 @@
 <?php
 
     echo "<table class='table-data'>";
-    echo "<tr><th>Id</th><th>Name</th><th>Description</th><th>Price</th><th>Image</th><th>Category Name</th><th>Brand Name</th></tr>";
+    echo "<tr><th>Id</th><th>Name</th><th>Description</th><th>Price</th><th>Image</th><th>Category Id</th><th>Category Name</th><th>Brand Id</th><th>Brand Name</th></tr>";
 
     $host = "localhost";
     $username = "root";
@@ -33,8 +33,10 @@
         
         // Create the SQL statement and execute it
         $stmt = $conn->prepare("
-            SELECT products.id, products.name, products.description, products.price, products.image, categories.category_name, brands.brand_name 
-            FROM products, categories, brands WHERE products.category_id = categories.id AND products.brand_id = brands.id
+            SELECT products.id, products.name, products.description, products.price, products.image, products.category_id, categories.category_name, products.brand_id, brands.brand_name
+            FROM products 
+            INNER JOIN categories ON categories.category_id = products.category_id
+            INNER JOIN brands ON brands.brand_id = products.brand_id
         ");        
         
         $stmt->execute();
@@ -49,7 +51,9 @@
             echo "<td>" . $row['description'] . "</td>";
             echo "<td>" . $row['price'] . "</td>";
             echo "<td><img src=\"" . $row['image'] . "\"/></td>";
+            echo "<td>" . $row['category_id'] . "</td>";
             echo "<td>" . $row['category_name'] . "</td>";
+            echo "<td>" . $row['brand_id'] . "</td>";
             echo "<td>" . $row['brand_name'] . "</td>";
 
             echo "</tr>";            

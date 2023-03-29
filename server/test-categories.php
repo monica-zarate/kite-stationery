@@ -33,7 +33,7 @@
         
         // Create the SQL statement and execute it
         $stmt = $conn->prepare("
-            SELECT id, name, icon 
+            SELECT category_id, category_name, category_icon 
             FROM categories
         ");        
         
@@ -44,9 +44,9 @@
         
             echo "<tr>";
 
-            echo "<td>" . $row['id'] . "</td>";
-            echo "<td>" . $row['name'] . "</td>";
-            echo "<td>" . $row['icon'] . "</td>";
+            echo "<td>" . $row['category_id'] . "</td>";
+            echo "<td>" . $row['category_name'] . "</td>";
+            echo "<td>" . $row['category_icon'] . "</td>";
 
             echo "</tr>";            
         }
