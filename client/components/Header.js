@@ -7,7 +7,7 @@ export default function Header() {
         <View style={styles.header}>
             <View style={styles.company_mark}>
                 <Image 
-                source={require("../assets/kite-stationery-icon.png")}
+                source={require("../assets/kite-stationery-transp-icon.png")}
                 style={styles.kite}
                 />
                 <Text h3>KITE STATIONERY</Text>

@@ -1,6 +1,7 @@
 import { View, StyleSheet, SectionList, Pressable } from 'react-native';
 import { Text, SearchBar, Image } from '@rneui/themed';
 
+import Header from '../components/Header';
 import BrandFetch from '../components/BrandFetch';
 
 export default function SearchScreen({}) {
@@ -24,13 +25,15 @@ export default function SearchScreen({}) {
 
     return (
         <View style={styles.container}>
-            <Text h1>What are you looking for?</Text>
+            <Header />    
+            <Text h1 style={{marginVertical: 30}}>What item are you looking for?</Text>
             <SearchBar 
                 lightTheme={true}
                 containerStyle={{
                     backgroundColor: '#fff',
                     borderBottomColor: 'transparent',
-                    borderTopColor: 'transparent'
+                    borderTopColor: 'transparent',
+                    marginBottom: 30
                 }}
                 inputContainerStyle={{
                     backgroundColor: '#fff',
@@ -39,6 +42,8 @@ export default function SearchScreen({}) {
                 }}
                 placeholder={"Search by Product, Name or Keyword"}
             />
+            <Text h2 style={{marginBottom: 24}}>Product Categories</Text>
+            <Text h2 style={{marginBottom: 24}}>Brands</Text>
             <BrandFetch />
             {/* <SectionList 
                 sections={DATA}
