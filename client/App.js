@@ -52,7 +52,7 @@ export default function App() {
                         screenOptions={{
                             tabBarActiveTintColor: '#222222',
                             tabBarInactiveTintColor: '#939393',
-                            // headerShown: false
+                            headerShown: false
                         }}
                     >
                         <Tab.Screen 
