@@ -24,7 +24,7 @@ export const kiteTheme = createTheme({
             style: {
                 fontWeight: 'normal',
                 fontFamily: 'Inter_400Regular',
-                fontSize: 14,
+                fontSize: 16,
                 lineHeight: 16,
             },
             h1Style: {
