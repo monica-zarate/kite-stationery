@@ -1,9 +1,16 @@
+import { useState } from 'react';
 import { View, StyleSheet, Pressable, ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Text,Image, Button } from '@rneui/themed';
-import { fonts } from '@rneui/base';
 
 export default function ProductDetailScreen({ route, navigation }) {
+    const [fave, setFave] = useState(false);
+
+    const toggleFave = () => {
+        setFave(!fave)
+    };
+
+    console.log(fave);
 
     const {product_id} = route.params;
     return (
@@ -23,10 +30,14 @@ export default function ProductDetailScreen({ route, navigation }) {
             <View style={styles.product_container}>
                 <View style={styles.product_title}>
                     <Text h2 style={{marginBottom: 12}}>Moon & Smith Floral Notebook</Text>
-                    <Pressable style={styles.heartContainer}>
+                    <Pressable onPress={() => toggleFave()}>
                         <Icon 
-                            name="heart-outline"
-                            style={styles.heart}
+                            name={fave ? "heart" : "heart-outline"}
+                            color={fave ? "red" : "#878787"}
+                            style={[
+                               
+                                styles.heart
+                            ]}
                         />
                     </Pressable>
                 </View>
@@ -96,10 +107,11 @@ const styles = StyleSheet.create({
         padding: 7,
         paddingLeft: 9,
         borderRadius: 50,
+        borderColor: "#878787",
         borderWidth: 1,
         // textAlign: "center",
         alignSelf: "center",
         // paddingEnd: 0,
-        textAlignVertical: "center"
+        textAlignVertical: "center",
     },
 });
