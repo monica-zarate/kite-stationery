@@ -20,11 +20,11 @@ export default function ProductCategoriesFetch({navigation}) {
 
     return (
         <FlatList 
-            data={DATA.categorys}
+            data={DATA.categories}
             renderItem={renderItem}
             keyExtractor={item => item.category_id}
             numColumns={3}
-            style={{ width: '100%'}}
+            style={{ width: '100%', marginBottom: 24}}
             columnWrapperStyle={{ justifyContent: 'space-between', gap: 7 }}
         />
     );

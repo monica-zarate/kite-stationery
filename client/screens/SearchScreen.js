@@ -3,6 +3,7 @@ import { Text, SearchBar, Image } from '@rneui/themed';
 
 import Header from '../components/Header';
 import BrandFetch from '../components/BrandFetch';
+import ProductCategoriesFetch from '../components/ProductCategoriesFetch';
 
 export default function SearchScreen({}) {
     const renderItem = ({item, index}) => (
@@ -26,8 +27,8 @@ export default function SearchScreen({}) {
     return (
         <View style={styles.container}>
             <Header />    
-            <Text h1 style={{marginVertical: 30}}>What item are you looking for?</Text>
-            <SearchBar 
+            {/* <Text h1 style={{marginVertical: 30}}>What item are you looking for?</Text> */}
+            {/* <SearchBar 
                 lightTheme={true}
                 containerStyle={{
                     backgroundColor: '#fff',
@@ -41,8 +42,9 @@ export default function SearchScreen({}) {
                     color: 'salmon'
                 }}
                 placeholder={"Search by Product, Name or Keyword"}
-            />
+            /> */}
             <Text h2 style={{marginBottom: 24}}>Product Categories</Text>
+            <ProductCategoriesFetch />
             <Text h2 style={{marginBottom: 24}}>Brands</Text>
             <BrandFetch />
             {/* <SectionList 
