@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1, 
         backgroundColor: '#fff',
-        paddingHorizontal: 24
+        paddingHorizontal: 24,
     },
     profile_pic: {
         width: 60,
@@ -108,7 +108,8 @@ const styles = StyleSheet.create({
        
     },
     chevron: {
-        fontSize: 26
+        fontSize: 26,
+        color: "#757575"
     },
     list_container: {
         borderRadius: 4,
