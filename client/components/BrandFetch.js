@@ -6,9 +6,9 @@ export default function BrandFetch({navigation}) {
     const renderItem = ({item}) => (
         <Pressable 
             style={styles.brand}
-            // onPress={() => navigation.navigate('Results', {
-            //     brand_id: item.brand_id,
-            // })}
+            onPress={() => navigation.navigate('Results', {
+                brand_id: item.brand_id,
+            })}
         >
             <Image 
                 source={item.brand_icon}

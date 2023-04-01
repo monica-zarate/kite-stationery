@@ -6,9 +6,9 @@ export default function ProductCategoriesFetch({navigation}) {
     const renderItem = ({item}) => (
         <Pressable 
             style={styles.category}
-            // onPress={() => navigation.navigate('Results', {
-            //     category_id: item.category_id,
-            // })}
+            onPress={() => navigation.navigate('Results', {
+                category_id: item.category_id,
+            })}
         >
             <Image 
                 source={item.category_icon}

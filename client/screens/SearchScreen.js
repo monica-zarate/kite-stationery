@@ -1,31 +1,15 @@
-import { View, StyleSheet, SectionList, Pressable } from 'react-native';
+import { View, StyleSheet, FlatList, Pressable } from 'react-native';
 import { Text, SearchBar, Image } from '@rneui/themed';
 
 import Header from '../components/Header';
 import BrandFetch from '../components/BrandFetch';
 import ProductCategoriesFetch from '../components/ProductCategoriesFetch';
 
-export default function SearchScreen({}) {
-    const renderItem = ({item, index}) => (
-        <Pressable 
-            style={styles.category}
-            onPress={() => navigation.navigate('Results', {
-                filter: item.name
-            })}
-        >
-            <Image 
-                source={item.imagePath}
-            />
-            <Text>{item.name}</Text>
-        </Pressable>
-    );
-
-    const renderHeader = ({section}) => (
-        <Text h2>{section.title}</Text>
-    );
+export default function SearchScreen({ navigation }) {
 
     return (
         <View style={styles.container}>
+            {/* <FlatList /> */}
             <Header />    
             <Text h1 style={{marginVertical: 30}}>What item are you looking for?</Text>
             <SearchBar 
@@ -40,12 +24,16 @@ export default function SearchScreen({}) {
                     backgroundColor: '#fff',
                     color: 'salmon'
                 }}
-                placeholder={"Search by Product, Name or Keyword"}
+                placeholder={"Search by Product Name"}
             />
             <Text h2 style={{marginBottom: 24}}>Product Categories</Text>
-            <ProductCategoriesFetch />
+            <ProductCategoriesFetch 
+                navigation={navigation}
+            />
             <Text h2 style={{marginBottom: 24}}>Brands</Text>
-            <BrandFetch />
+            <BrandFetch 
+                navigation={navigation}
+            />
         </View>
     )
 };
