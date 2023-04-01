@@ -10,7 +10,11 @@ export default function BrandFetch({navigation}) {
             //     brand_id: item.brand_id,
             // })}
         >
-            <Text>{item.brand_name}</Text>
+            <Image 
+                source={item.brand_icon}
+                style={styles.brand_icon}
+            />
+            <Text style={styles.brand_name}>{item.brand_name}</Text>
         </Pressable>
     );
 
@@ -19,12 +23,34 @@ export default function BrandFetch({navigation}) {
             data={DATA.brands}
             renderItem={renderItem}
             keyExtractor={item => item.brand_id}
+            numColumns={3}
+            style={{ width: '100%'}}
+            columnWrapperStyle={{ justifyContent: 'space-between', gap: 7 }}
         />
     );
 };
 
 const styles = StyleSheet.create({
-
+    brand: {
+        backgroundColor: "#fff",
+        padding: 18,
+        borderRadius: 4,
+        alignItems: "center",
+        width: "32%",
+        marginBottom: 7,
+    },
+    brand_icon: {
+        height: 40,
+        width: 40,
+        marginBottom: 10
+    },
+    brand_name: {
+        textAlignVertical: "center",
+        textAlign: "center",
+        textTransform: "uppercase",
+        fontFamily: 'Inter_600SemiBold',
+        fontSize: 13
+    }
 });
 
 const DATA = 
@@ -34,32 +60,32 @@ const DATA =
             {
                 brand_id: "1",
                 brand_name: "Chroma Lumix",
-                brand_icon: "a"
+                brand_icon: require('../assets/test-icon.png')
             },
             {
                 brand_id: "2",
                 brand_name: "Luctus",
-                brand_icon: "a"
+                brand_icon: require('../assets/test-icon.png')
             },
             {
                 brand_id: "3",
                 brand_name: "Moon Smith",
-                brand_icon: "a"
+                brand_icon: require('../assets/test-icon.png')
             },
             {
                 brand_id: "4",
                 brand_name: "Reed & Quil",
-                brand_icon: "a"
+                brand_icon: require('../assets/test-icon.png')
             },
             {
                 brand_id: "5",
                 brand_name: "Outline Point",
-                brand_icon: "a"
+                brand_icon: require('../assets/test-icon.png')
             },
             {
                 brand_id: "6",
                 brand_name: "Conner's",
-                brand_icon: "a"
+                brand_icon: require('../assets/test-icon.png')
             }
         ]
     }
