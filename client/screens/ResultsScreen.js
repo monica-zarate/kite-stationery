@@ -11,7 +11,12 @@ export default function ResultsScreen({ route, navigation }) {
     console.log(route.params);
 
     const renderItem = ({item}) => (
-        <Pressable style={styles.product_card}>
+        <Pressable 
+            style={styles.product_card}
+            onPress={() => navigation.navigate('Product Detail', {
+                product_id: item.id,
+            })}
+        >
             <Image 
                 source={{uri: item.image}}
                 style={styles.product_img}
