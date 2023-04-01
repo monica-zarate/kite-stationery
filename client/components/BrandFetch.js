@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         textTransform: "uppercase",
         fontFamily: 'Inter_600SemiBold',
-        fontSize: 13
+        fontSize: 11
     }
 });
 

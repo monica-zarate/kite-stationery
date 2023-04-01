@@ -38,6 +38,7 @@ const styles = StyleSheet.create({
         alignItems: "center",
         width: "32%",
         marginBottom: 7,
+        aspectRatio: 1
     },
     category_icon: {
         height: 40,
@@ -49,7 +50,7 @@ const styles = StyleSheet.create({
         textAlign: "center",
         textTransform: "uppercase",
         fontFamily: 'Inter_600SemiBold',
-        fontSize: 13
+        fontSize: 11
     }
 });
 
@@ -59,32 +60,32 @@ const DATA =
         categories: [
             {
                 category_id: "1",
-                category_name: "Chroma Lumix",
+                category_name: "notebook",
                 category_icon: require('../assets/test-icon.png')
             },
             {
                 category_id: "2",
-                category_name: "Luctus",
+                category_name: "Pen",
                 category_icon: require('../assets/test-icon.png')
             },
             {
                 category_id: "3",
-                category_name: "Moon Smith",
+                category_name: "stickers",
                 category_icon: require('../assets/test-icon.png')
             },
             {
                 category_id: "4",
-                category_name: "Reed & Quil",
+                category_name: "ink",
                 category_icon: require('../assets/test-icon.png')
             },
             {
                 category_id: "5",
-                category_name: "Outline Point",
+                category_name: "tape",
                 category_icon: require('../assets/test-icon.png')
             },
             {
                 category_id: "6",
-                category_name: "Conner's",
+                category_name: "highlighter",
                 category_icon: require('../assets/test-icon.png')
             }
         ]
