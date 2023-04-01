@@ -8,6 +8,7 @@ import Header from '../components/Header';
 export default function ResultsScreen({ route, navigation }) {
 
     const { brand_id, category_id } = route.params;
+    console.log(route.params);
 
     const renderItem = ({item}) => (
         <Pressable style={styles.product_card}>
@@ -15,31 +16,39 @@ export default function ResultsScreen({ route, navigation }) {
                 source={{uri: item.image}}
                 style={styles.product_img}
             />
-            <Text>{item.name}</Text>
+            <Text h4 style={styles.product_name}>{item.name}</Text>
+            <Text>{item.price}</Text>
         </Pressable>
     );
 
     return (
         <View style={styles.container}>
-            <Header />   
+            <Header />
+            <Pressable
+                title={'Go Back'}
+                onPress={() => navigation.goBack()}
+            >
+                <Icon name="arrow-back-outline" style={styles.back}  />
+            </Pressable>
+            <Text h1 style={{marginVertical: 24}}>Notebook</Text>
             <FlatList 
                 ListHeaderComponent={
                     <>
-                        <Pressable
+                        {/* <Pressable
                             title={'Go Back'}
                             onPress={() => navigation.goBack()}
                         >
                             <Icon name="arrow-back-outline" style={styles.back}  />
-                        </Pressable>
+                        </Pressable> */}
                     </>
                 }
                 data={DATA.products}
                 renderItem={renderItem}
                 keyExtractor={item => item.id}
                 numColumns={2}
-                columnWrapperStyle={{ justifyContent: 'space-between', gap: 7 }}
+                columnWrapperStyle={{ justifyContent: 'space-between'}}
             />
-            <Text>This screen will hold the results of the search or filtering</Text>
+            {/* <Text>This screen will hold the results of the search or filtering</Text> */}
         </View>
     )
 };
@@ -54,12 +63,20 @@ const styles = StyleSheet.create({
         fontSize: 24
     },
     product_card: {
-        maxWidth: "50%"
+        width: "45%",
+        marginBottom: 30,
+        // backgroundColor: "salmon"
+        // flex: 1
     },
     product_img: {
-        height: 185,
-        width: 145,
-
+        height: 200,
+        width: "100%",
+        marginBottom: 13,
+        borderRadius: 6,
+        aspectRatio: 1.27
+    },
+    product_name: {
+        marginBottom: 6
     }
 });
 
