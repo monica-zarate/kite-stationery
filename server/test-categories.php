@@ -46,7 +46,7 @@
 
             echo "<td>" . $row['category_id'] . "</td>";
             echo "<td>" . $row['category_name'] . "</td>";
-            echo "<td>" . $row['category_icon'] . "</td>";
+            echo "<td><img src=\"" . $row['category_icon'] . "\"/></td>";
 
             echo "</tr>";            
         }
