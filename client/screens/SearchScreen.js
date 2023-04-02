@@ -33,9 +33,7 @@ export default function SearchScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <Header />    
-            
-            {displayDataContainer(error, isLoaded, dataResult)}
-            
+            {displayDataContainer(error, isLoaded, dataResult, navigation)}
         </View>
     )
 };
@@ -128,7 +126,7 @@ function displayDataContainer (error, isLoaded, dataResult, navigation) {
 const styles = StyleSheet.create({
     container: {
         flex: 1, 
-        marginHorizontal: 24,
+        paddingHorizontal: 24,
         marginTop: 15
     },
     brand: {
@@ -140,12 +138,9 @@ const styles = StyleSheet.create({
         marginBottom: 7,
     },
     brand_icon: {
-        height: 40,
-        width: 40,
-        marginBottom: 10,
-        // resizeMode: "cover"
-        // width: '100%',
-        // flex: 1,
+        height: 60,
+        width: 60,
+        marginBottom: 10
     },
     brand_name: {
         textAlignVertical: "center",
