@@ -46,7 +46,7 @@
 
             echo "<td>" . $row['brand_id'] . "</td>";
             echo "<td>" . $row['brand_name'] . "</td>";
-            echo "<td>" . $row['brand_icon'] . "</td>";
+            echo "<td><img src=\"" . $row['brand_icon'] . "\"/></td>";
 
             echo "</tr>";            
         }
