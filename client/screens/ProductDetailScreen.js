@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
-import { View, StyleSheet, Pressable, ImageBackground, ActivityIndicator } from 'react-native';
+import { useState } from 'react';
+import { View, StyleSheet, Pressable, ImageBackground, } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Text, Button, } from '@rneui/themed';
 
