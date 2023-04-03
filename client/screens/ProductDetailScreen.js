@@ -1,7 +1,7 @@
-import { useState } from 'react';
-import { View, StyleSheet, Pressable, ImageBackground } from 'react-native';
+import { useState, useEffect } from 'react';
+import { View, StyleSheet, Pressable, ImageBackground, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Text,Image, Button } from '@rneui/themed';
+import { Text, Button } from '@rneui/themed';
 
 export default function ProductDetailScreen({ route, navigation }) {
     const [fave, setFave] = useState(false);
@@ -9,14 +9,12 @@ export default function ProductDetailScreen({ route, navigation }) {
     const toggleFave = () => {
         setFave(!fave)
     };
+    const { product } = route.params;
 
-    console.log(fave);
-
-    const {product_id} = route.params;
     return (
         <View style={styles.container}>
             <ImageBackground 
-                source={{uri: "https://i.imgur.com/agofhX4.jpg"}}
+                source={{uri: product.image}}
                 style={styles.product_img}
             >
                 <Pressable
@@ -29,21 +27,20 @@ export default function ProductDetailScreen({ route, navigation }) {
             </ImageBackground>
             <View style={styles.product_container}>
                 <View style={styles.product_title}>
-                    <Text h2 style={{marginBottom: 12}}>Moon & Smith Floral Notebook</Text>
+                    <Text h2 style={{marginBottom: 12, maxWidth:"80%"}}>{product.name}</Text>
                     <Pressable onPress={() => toggleFave()}>
                         <Icon 
                             name={fave ? "heart" : "heart-outline"}
                             color={fave ? "red" : "#878787"}
                             style={[
-                               
                                 styles.heart
                             ]}
                         />
                     </Pressable>
                 </View>
-                <Text h3 style={{marginBottom: 30}}>$24.99</Text>
+                <Text h3 style={{marginBottom: 30}}>${product.price}</Text>
                 <Text h4 style={{marginBottom: 8}}>Description</Text>
-                <Text style={{marginBottom: 40}}>Mono Ink Pen is the most elegant and stylish item that our customers love. The grip is made out of redwood and refined with mesh cut. {"\n"}The product does not include an ink.</Text>
+                <Text style={{marginBottom: 40}}>{product.description}</Text>
                 <Button
                     containerStyle={{
                         width: "100%",
@@ -69,23 +66,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     backContainer: {
-        // borderRadius: 50
         width: 50,
         height: 50,
         borderRadius: 50,
         textAlign: "center",
-        // backgroundColor: "red",
         marginTop: 30,
         marginLeft: 10,
         alignItems: "center"
     },
     backIcon: {
         backgroundColor: "#fff",
-        // alignSelf: "center",
         padding: 10,
         borderRadius: 50,
         fontSize: 32,
-        // textAlignVertical: "center"
     },
     product_img: {
         width: "100%",
@@ -96,6 +89,7 @@ const styles = StyleSheet.create({
     product_container: {
         marginHorizontal: 24,
         marginVertical: 30,
+        maxWidth: "100%"
     },
     product_title: {
         flexDirection: "row",
@@ -103,15 +97,12 @@ const styles = StyleSheet.create({
     },
     heart: {
         fontSize: 25,
-        // backgroundColor: "red",
         padding: 7,
         paddingLeft: 9,
         borderRadius: 50,
         borderColor: "#878787",
         borderWidth: 1,
-        // textAlign: "center",
         alignSelf: "center",
-        // paddingEnd: 0,
         textAlignVertical: "center",
     },
 });

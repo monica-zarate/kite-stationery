@@ -9,10 +9,8 @@ import Header from '../components/Header';
 export default function ResultsScreen({ route, navigation }) {
 
     const { brand_id, category_id } = route.params;
-    // console.log(route.params);
-    // console.log(category_id);
 
-    // This fetch will be getting the brands 
+    // This fetch will be getting the query results
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [dataResult, setDataResult] = useState([]);
@@ -29,8 +27,6 @@ export default function ResultsScreen({ route, navigation }) {
         if (category_id) {
             filter = "?category_id=" + category_id;
         };
-
-        // console.log(filter);
 
         fetch(uri + filter)
             .then(res => res.json())
@@ -66,7 +62,8 @@ function displayDataContainer (error, isLoaded, dataResult, navigation) {
         <Pressable 
             style={styles.product_card}
             onPress={() => navigation.navigate('Product Detail', {
-                product_id: item.id,
+                // product_id: item.id,
+                product: item
             })}
         >
             <Image 
