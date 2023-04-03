@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { View, StyleSheet, Pressable, ImageBackground, ActivityIndicator } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
-import { Text, Button } from '@rneui/themed';
+import { Text, Button, CheckBox } from '@rneui/themed';
 
 export default function ProductDetailScreen({ route, navigation }) {
     const [fave, setFave] = useState(false);
+    const [checked, setState] = useState(false);
+    const toggleCheckbox = () => setState(!checked);
 
     const toggleFave = () => {
         setFave(!fave)
@@ -28,12 +30,27 @@ export default function ProductDetailScreen({ route, navigation }) {
             <View style={styles.product_container}>
                 <View style={styles.product_title}>
                     <Text h2 style={{marginBottom: 12, maxWidth:"80%"}}>{product.name}</Text>
+                    {/* <CheckBox
+                        checked={checked}
+                        checkedIcon="heart"
+                        uncheckedIcon="heart-o"
+                        checkedColor="red"
+                        onPress={toggleCheckbox}
+                        // style={styles.heart}
+                        containerStyle={{
+                            borderRadius: 50,
+                            borderColor: checked === true ?  "red" : "#878787",
+                            borderWidth: 1,
+                            height: "64%"
+                        }}
+                    /> */}
                     <Pressable onPress={() => toggleFave()}>
                         <Icon 
-                            name={fave ? "heart" : "heart-outline"}
-                            color={fave ? "red" : "#878787"}
+                            name={fave === true ? "heart" : "heart-outline"}
+                            color={fave === true ? "red" : "#878787"}
                             style={[
-                                styles.heart
+                                styles.heart,
+                                {borderColor: fave === true ?  "red" : "#878787",}
                             ]}
                         />
                     </Pressable>
