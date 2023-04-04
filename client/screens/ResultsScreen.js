@@ -105,7 +105,6 @@ function displayDataContainer (error, isLoaded, dataResult, navigation, brand_id
     };
 
     if (brand_id) {
-        console.log("dataresult.products", dataResult.products);
         resultsTitle = dataResult.products[0].brand_name;
     }
 
