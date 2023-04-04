@@ -51,18 +51,19 @@ export default function ResultsScreen({ route, navigation }) {
             >
                 <Icon name="arrow-back-outline" style={styles.back}  />
             </Pressable>
-            {displayDataContainer(error, isLoaded, dataResult, navigation)}
+            {displayDataContainer(error, isLoaded, dataResult, navigation, brand_id, category_id)}
         </View>
     )
 };
 
-function displayDataContainer (error, isLoaded, dataResult, navigation) {
+function displayDataContainer (error, isLoaded, dataResult, navigation, brand_id, category_id) {
+    
+    let resultsTitle;
     
     const renderItem = ({item}) => (
         <Pressable 
             style={styles.product_card}
             onPress={() => navigation.navigate('Product Detail', {
-                // product_id: item.id,
                 product: item
             })}
         >
@@ -103,12 +104,21 @@ function displayDataContainer (error, isLoaded, dataResult, navigation) {
         );
     };
 
+    if (brand_id) {
+        console.log("dataresult.products", dataResult.products);
+        resultsTitle = dataResult.products[0].brand_name;
+    }
+
+    if (category_id) {
+        resultsTitle = dataResult.products[0].category_name;
+    }
+
     // Returned flatlist will display the retrieved data
     return (
         <FlatList 
             ListHeaderComponent={
                 <>
-                    <Text h1 style={{marginVertical: 24}}>Results</Text>
+                    <Text h1 style={{marginVertical: 24, textTransform: "capitalize"}}>{resultsTitle ? resultsTitle : "Results"}</Text>
                 </>
             }
             data={dataResult.products}
