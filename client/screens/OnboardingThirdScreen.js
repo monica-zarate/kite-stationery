@@ -4,7 +4,7 @@ export default function OnboardingThirdScreen() {
 
     return (
         <View>
-            <Text>This is the first screen</Text>
+            <Text>This is the third screen</Text>
         </View>
     )
 }

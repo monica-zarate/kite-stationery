@@ -9,6 +9,7 @@ import Icon from 'react-native-vector-icons/Ionicons';
 
 // React native navigation components 
 import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 // Import Custom Theme 
@@ -29,10 +30,14 @@ import HomeScreen from './screens/HomeScreen';
 import SearchNav from './screens/SearchNavigator';
 import AccountScreen from './screens/AccountScreen';
 
-// Instantiate the Bottom Tab component 
+// Instantiate the Bottom Tab component
+const Stack = createNativeStackNavigator(); 
 const Tab = createBottomTabNavigator();
 
 export default function App() {
+
+    const [showOnboarding, setShowOnboarding] = useState(true);
+
     let [fontsLoaded] = useFonts({
         Inter_400Regular,
         Inter_500Medium,
@@ -44,9 +49,36 @@ export default function App() {
         return (
             <View>
                 <ActivityIndicator 
-                    color='#FF9F00'
+                    color='#FF5A00'
                 />
             </View>
+        )
+    }
+
+    if (showOnboarding) {
+        return (
+            <SafeAreaProvider>
+                <NavigationContainer>
+                    <Stack.Navigator
+                        screenOptions={{ headerShown: false}}
+                    >
+                        <Stack.Screen 
+                            name="OnboardingFirst"
+                        >
+                            {props => <OnboardingFirstScreen {...props} setShowOnboarding={setShowOnboarding} /> }
+                        </Stack.Screen>
+                        <Stack.Screen
+                            name="OnboardingSecond"
+                            component={OnboardingSecondScreen}
+                        />
+                        <Stack.Screen
+                            name="OnboardingThird"
+                        >
+                            {props => <OnboardingThirdScreen {...props} setShowOnboarding={setShowOnboarding} />}
+                        </Stack.Screen>
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </SafeAreaProvider>
         )
     }
 

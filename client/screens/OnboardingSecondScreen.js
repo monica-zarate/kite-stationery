@@ -4,7 +4,7 @@ export default function OnboardingSecondScreen() {
 
     return (
         <View>
-            <Text>This is the first screen</Text>
+            <Text>This is the second screen</Text>
         </View>
     )
 }
