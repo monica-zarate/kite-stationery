@@ -69,8 +69,9 @@ export default function App() {
                         </Stack.Screen>
                         <Stack.Screen
                             name="OnboardingSecond"
-                            component={OnboardingSecondScreen}
-                        />
+                        >
+                            {props => <OnboardingSecondScreen {...props} setShowOnboarding={setShowOnboarding} /> }
+                        </Stack.Screen>
                         <Stack.Screen
                             name="OnboardingThird"
                         >
