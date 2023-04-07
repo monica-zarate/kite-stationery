@@ -18,6 +18,11 @@ export const kiteTheme = createTheme({
             },
             containerStyle: {
                 width: 312
+            },
+            titleStyle: {
+                fontFamily: 'Inter_700Bold',
+                fontSize: 16,
+                textTransform: "uppercase" 
             }
         }),
         Text: {
