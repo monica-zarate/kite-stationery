@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 // Import the SafeAreaProvider
 import { SafeAreaProvider } from "react-native-safe-area-context";
 
@@ -16,6 +18,11 @@ import { kiteTheme } from "./themes/kiteTheme";
 // Import Fonts 
 import { useFonts } from 'expo-font';
 import{ Inter_400Regular, Inter_500Medium, Inter_600SemiBold, Inter_700Bold } from '@expo-google-fonts/inter';
+
+// Import Onboarding Screens
+import OnboardingFirstScreen from './screens/OnboardingFirstScreen';
+import OnboardingSecondScreen from './screens/OnboardingSecondScreen';
+import OnboardingThirdScreen from './screens/OnboardingThirdScreen';
 
 // Import Screens 
 import HomeScreen from './screens/HomeScreen';
