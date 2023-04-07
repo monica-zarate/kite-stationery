@@ -6,13 +6,13 @@ export const themePalette = {
     tertiary: '#FF9F00',
     accent: '#43CCFF',
     white: '#fff',
-    grey: '#939393',
+    grey: '#F6F6F6',
 };
 
 export const kiteTheme = createTheme({
     components: {
-        Button: (buttonProps) => ({
-            buttonstyle: {
+        Button: () => ({
+            buttonStyle: {
                 borderRadius: 6,
                 backgroundColor: themePalette.primary,
             },
