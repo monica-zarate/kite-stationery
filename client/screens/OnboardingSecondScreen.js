@@ -75,8 +75,4 @@ const styles = StyleSheet.create({
         justifyContent: "space-between",
         gap: 7
     },
-    btn: {
-        textTransform: "uppercase"
-    }
-    
 });
