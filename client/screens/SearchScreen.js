@@ -3,7 +3,6 @@ import { View, StyleSheet, FlatList, Pressable, ActivityIndicator } from 'react-
 import { Text, SearchBar, Image } from '@rneui/themed';
 
 import Header from '../components/Header';
-import BrandFetch from '../components/BrandFetch';
 import ProductCategoriesFetch from '../components/ProductCategoriesFetch';
 
 export default function SearchScreen({ navigation }) {
