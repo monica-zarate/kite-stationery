@@ -27,7 +27,8 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: "center",
         paddingVertical: 20,
-        justifyContent: "space-between"
+        justifyContent: "space-between",
+        paddingHorizontal: 24
     },
     kite: {
         width: 27,

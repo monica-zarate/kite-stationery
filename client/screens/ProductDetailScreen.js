@@ -13,7 +13,7 @@ export default function ProductDetailScreen({ route, navigation }) {
 
     return (
         <View style={styles.container}>
-            <Header/>
+            <Header />
             <ImageBackground 
                 source={{uri: product.image}}
                 style={styles.product_img}
