@@ -119,14 +119,14 @@ function displayDataContainer (error, isLoaded, dataResult, navigation, brand_id
         <FlatList 
             ListHeaderComponent={
                 <>
-                    <Text h1 style={{marginVertical: 24, textTransform: "capitalize"}}>{resultsTitle ? resultsTitle : "Results"}</Text>
+                    <Text h1 style={{marginVertical: 24, textTransform: "capitalize", paddingHorizontal: 24}}>{resultsTitle ? resultsTitle : "Results"}</Text>
                 </>
             }
             data={dataResult.products}
             renderItem={renderItem}
             keyExtractor={item => item.id}
             numColumns={2}
-            columnWrapperStyle={{ justifyContent: 'space-between', }}
+            columnWrapperStyle={{ justifyContent: 'space-between', paddingHorizontal: 24 }}
         />
     );  
     
@@ -138,7 +138,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     backBtn: {
-        width: 42
+        width: 42,
+        marginLeft: 24
     },
     back: {
         fontSize: 40
