@@ -29,13 +29,19 @@ export default function ProductDetailScreen({ route, navigation }) {
             <View style={styles.product_container}>
                 <View style={styles.product_title}>
                     <Text h2 style={{marginBottom: 12, maxWidth:"80%"}}>{product.name}</Text>
-                    <Pressable onPress={() => toggleFave()}>
+                    <Pressable 
+                        onPress={() => toggleFave()} 
+                        style={[
+                            styles.heartContainer,
+                            {borderColor: fave === true ?  "red" : "#878787",}
+                        ]}
+                    >
                         <Icon 
                             name={fave === true ? "heart" : "heart-outline"}
                             color={fave === true ? "red" : "#878787"}
                             style={[
                                 styles.heart,
-                                {borderColor: fave === true ?  "red" : "#878787",}
+                                // {borderColor: fave === true ?  "red" : "#878787",}
                             ]}
                         />
                     </Pressable>
@@ -73,7 +79,8 @@ const styles = StyleSheet.create({
         textAlign: "center",
         marginTop: 30,
         marginLeft: 24,
-        alignItems: "center"
+        alignItems: "center",
+        overflow: "hidden"
     },
     backIcon: {
         backgroundColor: "#fff",
@@ -96,14 +103,32 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-between"
     },
-    heart: {
-        fontSize: 25,
-        padding: 7,
-        paddingLeft: 9,
-        borderRadius: 50,
+    heartContainer: {
+        justifyContent: "center",
+        width: 50,
+        height: 50,
+        borderRadius: 50/2,
+        alignContent: "center",
+        // alignSelf: "center",
+        // textAlignVertical: "center",
+        // backgroundColor: "salmon",
         borderColor: "#878787",
         borderWidth: 1,
-        alignSelf: "center",
-        textAlignVertical: "center",
+    },
+    heart: {
+        fontSize: 27,
+        textAlign: "center",
+        lineHeight: 0,
+        letterSpacing: 0,
+        // backgroundColor: "green"
+        // padding: 7,
+        // paddingLeft: 9,
+        // borderRadius: 50,
+        // backgroundColor: "salmon",
+        // alignSelf: "center",
+        // padding: 20,
+        // overflow: "hidden", 
+        // padding: 20,
+        
     },
 });
