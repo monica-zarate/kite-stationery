@@ -48,6 +48,7 @@ export default function ResultsScreen({ route, navigation }) {
             <Pressable
                 title={'Go Back'}
                 onPress={() => navigation.goBack()}
+                style={styles.backBtn}
             >
                 <Icon name="arrow-back-outline" style={styles.back}  />
             </Pressable>
@@ -137,8 +138,11 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingHorizontal: 24,
     },
+    backBtn: {
+        width: 42
+    },
     back: {
-        fontSize: 24
+        fontSize: 40
     },
     product_card: {
         width: "45%",
