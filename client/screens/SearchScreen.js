@@ -114,7 +114,7 @@ function displayDataContainer (error, isLoaded, dataResult, navigation) {
             renderItem={renderItem}
             keyExtractor={item => item.brand_id}
             numColumns={3}
-            style={{ width: '100%', marginBottom: 24, paddingHorizontal: 24}}
+            style={{ width: '100%', paddingHorizontal: 24}}
             columnWrapperStyle={{ justifyContent: 'space-between', gap: 7 }}
             navigation={navigation}
         />
