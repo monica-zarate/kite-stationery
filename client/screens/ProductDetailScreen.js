@@ -37,11 +37,9 @@ export default function ProductDetailScreen({ route, navigation }) {
                         ]}
                     >
                         <Icon 
-                            name={fave === true ? "heart" : "heart-outline"}
+                            name="heart-circle-outline"
                             color={fave === true ? "red" : "#878787"}
-                            style={[
-                                styles.heart,
-                            ]}
+                            size={44}
                         />
                     </Pressable>
                 </View>
@@ -101,20 +99,5 @@ const styles = StyleSheet.create({
     product_title: {
         flexDirection: "row",
         justifyContent: "space-between"
-    },
-    heartContainer: {
-        justifyContent: "center",
-        width: 50,
-        height: 50,
-        borderRadius: 50/2,
-        alignContent: "center",
-        borderColor: "#878787",
-        borderWidth: 1,
-    },
-    heart: {
-        fontSize: 27,
-        textAlign: "center",
-        lineHeight: 0,
-        letterSpacing: 0,
     },
 });
