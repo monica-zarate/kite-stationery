@@ -41,7 +41,6 @@ export default function ProductDetailScreen({ route, navigation }) {
                             color={fave === true ? "red" : "#878787"}
                             style={[
                                 styles.heart,
-                                // {borderColor: fave === true ?  "red" : "#878787",}
                             ]}
                         />
                     </Pressable>
@@ -109,9 +108,6 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 50/2,
         alignContent: "center",
-        // alignSelf: "center",
-        // textAlignVertical: "center",
-        // backgroundColor: "salmon",
         borderColor: "#878787",
         borderWidth: 1,
     },
@@ -120,15 +116,5 @@ const styles = StyleSheet.create({
         textAlign: "center",
         lineHeight: 0,
         letterSpacing: 0,
-        // backgroundColor: "green"
-        // padding: 7,
-        // paddingLeft: 9,
-        // borderRadius: 50,
-        // backgroundColor: "salmon",
-        // alignSelf: "center",
-        // padding: 20,
-        // overflow: "hidden", 
-        // padding: 20,
-        
     },
 });
