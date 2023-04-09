@@ -3,6 +3,8 @@ import { View, StyleSheet, Pressable, ImageBackground, } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Text, Button, } from '@rneui/themed';
 
+import Header from '../components/Header';
+
 export default function ProductDetailScreen({ route, navigation }) {
     const [fave, setFave] = useState(false);
     const toggleFave = () => {setFave(!fave)};
@@ -11,6 +13,7 @@ export default function ProductDetailScreen({ route, navigation }) {
 
     return (
         <View style={styles.container}>
+            <Header/>
             <ImageBackground 
                 source={{uri: product.image}}
                 style={styles.product_img}
