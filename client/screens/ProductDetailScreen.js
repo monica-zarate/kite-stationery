@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         textAlign: "center",
         marginTop: 30,
-        marginLeft: 10,
+        marginLeft: 24,
         alignItems: "center"
     },
     backIcon: {
