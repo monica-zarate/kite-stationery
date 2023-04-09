@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { View, StyleSheet, Pressable, ImageBackground, } from 'react-native';
+import { ScrollView, View, StyleSheet, Pressable, ImageBackground, } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { Text, Button, } from '@rneui/themed';
 
@@ -12,7 +12,7 @@ export default function ProductDetailScreen({ route, navigation }) {
     const { product } = route.params;
 
     return (
-        <View style={styles.container}>
+        <ScrollView style={styles.container}>
             <Header />
             <ImageBackground 
                 source={{uri: product.image}}
@@ -57,7 +57,7 @@ export default function ProductDetailScreen({ route, navigation }) {
                     title={'Add to Cart'}
                 />
             </View>
-        </View>
+        </ScrollView>
     )
 };
 
